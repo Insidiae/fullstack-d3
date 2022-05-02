@@ -1,5 +1,5 @@
 async function drawLineChart() {
-  const data = await d3.csv("./data/bob_ross_paintings.csv");
+  const data = await d3.csv("../data/bob_ross_paintings.csv");
 
   //? Ordered by Season + Episode number
   const xAccessor = (d) => parseInt(d[""]);
