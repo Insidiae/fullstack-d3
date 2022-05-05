@@ -77,3 +77,11 @@ body {
   pointer-events: none;
   transition: opacity 250ms, transform 250ms;
 }
+
+.tooltip-line {
+  opacity: 0;
+  stroke: #af9358;
+  stroke-width: 2px;
+  pointer-events: none;
+  transition: opacity 250ms, transform 250ms;
+}

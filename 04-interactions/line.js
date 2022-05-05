@@ -88,6 +88,7 @@ async function drawLineChart() {
 
   //* Step 7. Set up interactions
   const tooltip = d3.select("#tooltip");
+  const tooltipLine = bounds.append("line").attr("class", "tooltip-line");
   const tooltipDot = bounds
     .append("circle")
     .attr("class", "tooltip-dot")
@@ -132,13 +133,30 @@ async function drawLineChart() {
     //     yAccessor(closestDataPoint)
     //   )}px)`
     // );
+
+    tooltipLine
+      .style("opacity", 1)
+      .attr("x1", xScale(xAccessor(closestDataPoint)))
+      .attr("y1", dimensions.boundedHeight)
+      .attr("x2", xScale(xAccessor(closestDataPoint)))
+      .attr("y2", yScale(yAccessor(closestDataPoint)));
+    //? If you want to smoothly animate the line's position, use these instead:
+    // .attr("x1", 0)
+    // .attr("y1", dimensions.boundedHeight)
+    // .attr("x2", 0)
+    // .attr("y2", yScale(yAccessor(closestDataPoint)))
+    // .style(
+    //   "transform",
+    //   `translateX(${xScale(xAccessor(closestDataPoint))}px)`
+    // );
     tooltip
       .style("transform", `translate(calc(${x}px - 50%), calc(${y}px - 100%))`)
       .style("opacity", 1);
   }
 
   function onMouseLeave() {
-    d3.select(".tooltip-dot").style("opacity", 0);
+    tooltipDot.style("opacity", 0);
+    tooltipLine.style("opacity", 0);
     tooltip.style("opacity", 0);
   }
 
