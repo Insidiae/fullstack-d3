@@ -105,6 +105,7 @@ async function drawScatter() {
     .duration(1000)
     //* You can use the index of each item to delay their transition one by one
     .delay((d, i) => i * 5)
+    .ease(d3.easeCubicOut)
     .style(
       "transform",
       (d) =>
