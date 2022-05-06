@@ -74,16 +74,29 @@ async function drawScatter() {
     // .range(d3.schemeSet1);
     .range(["#f28e2c", "#1b9e77", "#7570b3"]);
 
+  const symbolScale = d3
+    .scaleOrdinal()
+    .domain(speciesGroups.map((d) => d[0]))
+    .range([d3.symbolCircle, d3.symbolSquare, d3.symbolTriangle]);
+
   //* Step 5. Draw Data
   const dots = clip.selectAll("circle").data(data);
 
   dots
     .enter()
-    .append("circle")
+    .append("path")
     //#region new dots
-    .attr("cx", (d) => xScale(xAccessor(d)))
-    .attr("cy", dimensions.boundedHeight + 20)
-    .attr("r", 0)
+    .style(
+      "transform",
+      (d) =>
+        `translate(${xScale(xAccessor(d))}px, ${
+          dimensions.boundedHeight + 20
+        }px) scale(0)`
+    )
+    .attr(
+      "d",
+      d3.symbol().type((d) => symbolScale(colorAccessor(d)))
+    )
     .attr("fill", (d) => colorScale(colorAccessor(d)))
     //#endregion
     .merge(dots)
@@ -92,9 +105,13 @@ async function drawScatter() {
     .duration(1000)
     //* You can use the index of each item to delay their transition one by one
     .delay((d, i) => i * 5)
-    .ease(d3.easeCubicOut)
-    .attr("cy", (d) => yScale(yAccessor(d)))
-    .attr("r", 5);
+    .style(
+      "transform",
+      (d) =>
+        `translate(${xScale(xAccessor(d))}px, ${yScale(
+          yAccessor(d)
+        )}px) scale(1)`
+    );
   //#endregion
 
   //* Step 6. Draw peripherals
@@ -179,10 +196,9 @@ async function drawScatter() {
 
   speciesGroups.forEach((species, idx) => {
     legend
-      .append("circle")
-      .attr("r", 5)
-      .attr("cx", 25)
-      .attr("cy", 45 + idx * 25)
+      .append("path")
+      .attr("d", d3.symbol().type(symbolScale(species[0])))
+      .style("transform", `translate(${25}px, ${45 + idx * 25}px)`)
       .attr("fill", colorScale(species[0]));
 
     legend
