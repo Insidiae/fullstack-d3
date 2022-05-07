@@ -1,0 +1,154 @@
+/* Import and use the Inter font https://rsms.me/inter/ */
+@import url("https://rsms.me/inter/inter.css");
+html {
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2em 2em;
+  font-family: "Inter var", sans-serif;
+  font-size: 16px;
+  color: hsl(210deg 29% 29%);
+  background: hsl(210deg 17% 98%);
+}
+
+svg {
+  overflow: visible;
+}
+
+.wrapper {
+  position: relative;
+}
+
+.title {
+  position: relative;
+  width: 600px;
+  margin-top: 1.3em;
+  margin-bottom: 0.3em;
+  line-height: 1.2em;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  font-feature-settings: "tnum" 1;
+}
+
+.grid-line {
+  fill: none;
+  stroke: hsl(210deg 4% 86%);
+}
+
+.tick-label {
+  fill: hsl(210deg 17% 58%);
+  font-size: 0.7em;
+  font-weight: 600;
+  letter-spacing: 0.005em;
+  dominant-baseline: middle;
+}
+
+.grid-label {
+  fill: hsl(210deg 17% 58%);
+  font-size: 0.7em;
+  dominant-baseline: middle;
+  opacity: 0.7;
+}
+
+.freezing-circle {
+  fill: hsl(180deg 100% 41%);
+  opacity: 0.15;
+}
+
+.uv-index-line {
+  stroke: hsl(41deg 99% 67%);
+  stroke-width: 2;
+}
+
+.cloud-cover-dot {
+  fill: hsl(211deg 36% 84%);
+  opacity: 0.6;
+}
+
+.precip-dot {
+  opacity: 0.5;
+}
+
+.annotation-line {
+  stroke: hsl(210deg 29% 29%);
+  opacity: 0.4;
+}
+
+.annotation-text {
+  fill: hsl(210deg 29% 29%);
+  font-size: 0.7em;
+  dominant-baseline: middle;
+}
+
+.tooltip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0.6em 1em;
+  border: 1px solid hsl(0deg 0% 87%);
+  width: 15em;
+  background-color: hsl(0deg 0% 100%);
+  font-size: 0.9em;
+  line-height: 1.4em;
+  text-align: center;
+  transition: opacity 250ms;
+  z-index: 10;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.tooltip-line {
+  fill: hsl(210deg 17% 58%);
+  fill-opacity: 0.2;
+  mix-blend-mode: multiply;
+  transition: opacity 250ms;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.tooltip-date {
+  margin-bottom: 0.2em;
+  font-size: 1.1em;
+  font-weight: 600;
+  line-height: 1.4em;
+}
+
+.tooltip-temperature {
+  font-feature-settings: "tnum" 1;
+}
+
+.tooltip-metric {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 0.8em;
+  line-height: 1.3em;
+  transition: all 0.1s ease-out;
+}
+
+.tooltip-metric div:first-child {
+  padding-right: 1em;
+  font-weight: 800;
+}
+
+.tooltip-metric div:nth-child(2) {
+  font-feature-settings: "tnum" 1;
+}
+
+.tooltip-cloud {
+  color: hsl(210deg 17% 58%);
+}
+.tooltip-uv {
+  color: hsl(41deg 99% 67%);
+}
+
+.listener-circle {
+  fill: transparent;
+}
