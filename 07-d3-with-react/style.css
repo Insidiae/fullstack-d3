@@ -1,0 +1,64 @@
+/* Import and use the Inter font https://rsms.me/inter/ */
+@import url("https://rsms.me/inter/inter.css");
+html {
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  padding: 1.6em 2em 4em;
+  letter-spacing: -0.011em;
+  font-family: "Inter var", sans-serif;
+  font-size: 16px;
+  color: hsl(210deg 29% 29%);
+  background: hsl(210deg 17% 95%);
+}
+
+#root,
+.App {
+  width: 100%;
+}
+
+h1 {
+  font-weight: 900;
+  margin: 0.4em 0 0.6em;
+}
+
+/* placeholders */
+.placeholder {
+  background: hsl(192deg 15% 94%);
+}
+
+.Timeline {
+  height: 300px;
+  min-width: 500px;
+  width: calc(100% + 1em);
+  margin-bottom: 2em;
+}
+
+.Histogram {
+  height: 500px;
+  flex: 1;
+  min-width: 500px;
+  overflow: hidden;
+}
+
+.ScatterPlot {
+  height: 500px;
+  width: 500px;
+  margin-right: 2em;
+}
+
+.App__charts {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: -0.5em;
+}
+
+.Timeline,
+.ScatterPlot,
+.Histogram {
+  background: hsl(0deg 0% 100%);
+  padding: 0.6em 1em;
+  margin: 0.5em;
+}
