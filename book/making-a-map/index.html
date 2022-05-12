@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="./style.css" />
+    <title>My Map</title>
+  </head>
+  <body>
+    <div id="wrapper" class="wrapper">
+      <div id="tooltip" class="tooltip">
+        <div class="tooltip-country" id="country"></div>
+        <div class="tooltip-value">
+          <span id="value"></span> population change
+        </div>
+      </div>
+    </div>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <!-- ? If you need to deal with TopoJSON data: -->
+    <!-- <script src="https://unpkg.com/topojson@3"></script> -->
+    <script src="./chart.js"></script>
+  </body>
+</html>
